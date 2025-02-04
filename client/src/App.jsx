@@ -13,7 +13,7 @@ const App = () => {
   useEffect(() => {
     const fetchEmployees = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/api/employees");
+        const response = await axios.get("https://getmaxcrm.onrender.com/api/employees");
         setEmployees(response.data); // Set all employees in state
         setFilteredEmployees(response.data); // Initially set filteredEmployees to all employees
       } catch (error) {
