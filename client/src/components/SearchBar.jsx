@@ -14,7 +14,7 @@ const SearchBar = ({ setFilteredEmployees, setSearchQuery, employees }) => {
 
       try {
         const response = await axios.post(
-          "http://localhost:3000/api/employees/search",
+          "https://getmaxcrm.onrender.com/api/employees/search",
           { name: query },
           {
             headers: { "Content-Type": "application/json" },
