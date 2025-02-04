@@ -38,7 +38,7 @@ const EmployeeList = () => {
   useEffect(() => {
     const fetchEmployees = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/api/employees");
+        const response = await axios.get("https://getmaxcrm.onrender.com/api/employees");
         setEmployees(response.data.employees || []);
         setFilteredEmployees(response.data.employees || []);
         setTotalPages(Math.ceil(response.data.employees.length / itemsPerPage));
@@ -74,7 +74,7 @@ const EmployeeList = () => {
     if (editingIndex !== null) {
       try {
         await axios.put(
-          `http://localhost:3000/api/employees/${employeeData.employeeId}`,
+          `https://getmaxcrm.onrender.com/api/employees/${employeeData.employeeId}`,
           employeeData
         );
         setEmployees((prev) =>
@@ -88,7 +88,7 @@ const EmployeeList = () => {
     } else {
       try {
         const response = await axios.post(
-          "http://localhost:3000/api/employees",
+          "https://getmaxcrm.onrender.com/api/employees",
           employeeData
         );
         setEmployees([...employees, response.data.employee]);
@@ -116,7 +116,7 @@ const EmployeeList = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:3000/api/employees/${id}`);
+      await axios.delete(`https://getmaxcrm.onrender.com/api/employees/${id}`);
       setEmployees(employees.filter((emp) => emp._id !== id));
     } catch (error) {
       console.error("Error deleting employee:", error);
