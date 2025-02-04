@@ -32,7 +32,7 @@ const ProfilePage = () => {
         }
 
         // Fetch employee data from the backend
-        const response = await fetch(`http://localhost:3000/api/employees/${employeeId}`);
+        const response = await fetch(`https://getmaxcrm.onrender.com/api/employees/${employeeId}`);
         if (!response.ok) {
           throw new Error("Failed to fetch employee data");
         }
@@ -51,7 +51,7 @@ const ProfilePage = () => {
 
         // Set the first image from the images array
         if (employee.images.length > 0) {
-          setProfileImages(`http://localhost:3000/api/images/${employee.employeeId}/${employee.images[0]._id}`);
+          setProfileImages(`https://getmaxcrm.onrender.com/api/images/${employee.employeeId}/${employee.images[0]._id}`);
         }
       } catch (error) {
         console.error("Error fetching employee data:", error);
@@ -78,7 +78,7 @@ const ProfilePage = () => {
       setUploading(true); // Start uploading
 
       try {
-        const response = await fetch("http://localhost:3000/api/images/upload", {
+        const response = await fetch("https://getmaxcrm.onrender.com/api/images/upload", {
           method: "POST",
           body: formData,
         });
@@ -90,7 +90,7 @@ const ProfilePage = () => {
         const result = await response.json();
 
         // Update profile image in state
-        setProfileImages(`http://localhost:3000/api/images/${employeeData.employeeId}/${result.images[result.images.length - 1]._id}`);
+        setProfileImages(`https://getmaxcrm.onrender.com/api/images/${employeeData.employeeId}/${result.images[result.images.length - 1]._id}`);
 
         // Update employeeData with the new images array
         setEmployeeData((prevData) => ({
@@ -130,7 +130,7 @@ const ProfilePage = () => {
               <img
                 src={
                   employeeData.images && employeeData.images.length > 0
-                    ? `http://localhost:3000/api/images/${employeeData.employeeId}/${employeeData.images[0]._id}`
+                    ? `https://getmaxcrm.onrender.com/api/images/${employeeData.employeeId}/${employeeData.images[0]._id}`
                     : "/api/placeholder/80/80"
                 }
                 alt="Profile"
