@@ -8,7 +8,7 @@
   ],
   "routes": [
     {
-      "src": "/(.*)",
+      "src": "/api/(.*)",
       "methods": ["OPTIONS"],
       "dest": "/",
       "headers": {
@@ -19,7 +19,7 @@
       }
     },
     {
-      "src": "/(.*)",
+      "src": "/api/(.*)",
       "dest": "/",
       "methods": ["GET", "POST", "PUT", "DELETE", "PATCH"],
       "headers": {
