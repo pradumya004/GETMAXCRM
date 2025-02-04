@@ -2,7 +2,7 @@
 // routes/imageRoutes.js
 import express from 'express';
 import { uploadImage, getImage } from '../controllers/imageController.js';
-import upload from '../config/multerConfig.js';
+import upload from '../config/multerconfig.js';
 import { verifyToken } from '../middleware/auth.js';
 
 const router = express.Router();
