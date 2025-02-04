@@ -1,3 +1,5 @@
+
+// server.js
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
@@ -10,15 +12,8 @@ dotenv.config();
 const app = express();
 const port = process.env.PORT || 3000;
 
-// CORS Configuration
-const corsOptions = {
-  origin: 'http://localhost:5173',
-  optionsSuccessStatus: 200
-};
-
-app.use(cors(corsOptions));
-
 // Middleware
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -29,9 +24,6 @@ connectDB();
 app.use('/api/auth', authRoutes);
 app.use('/api/employees', employeeRoutes);
 app.use('/api/images', imageRoutes);
-
-// Handle preflight requests
-app.options('*', cors(corsOptions));
 
 // Start server
 app.listen(port, () => {
