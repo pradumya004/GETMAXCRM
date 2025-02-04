@@ -152,8 +152,8 @@ const AddEmployeeModal = ({
   
       // Determine the API endpoint and method
       const apiEndpoint = isEditing
-        ? `http://localhost:3000/api/employees/${employeeData.employeeId}`
-        : "http://localhost:3000/api/employees";
+        ? `https://getmaxcrm.onrender.com/api/employees/${employeeData.employeeId}`
+        : "https://getmaxcrm.onrender.com/api/employees";
       const apiMethod = isEditing ? axios.put : axios.post;
   
       // Make the API request
