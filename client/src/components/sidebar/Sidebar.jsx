@@ -23,7 +23,7 @@ const Sidebar = ({ onItemSelect }) => {
     if (employeeId) {
       try {
         const response = await fetch(
-          `http://localhost:3000/api/employees/isAdminOrNot/${employeeId}`
+          `https://getmaxcrm.onrender.com/api/employees/isAdminOrNot/${employeeId}`
         );
         if (!response.ok) {
           throw new Error("Failed to fetch user data");
